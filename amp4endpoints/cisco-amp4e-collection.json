@@ -1,0 +1,2487 @@
+{
+	"info": {
+		"_postman_id": "63e22830-4ba8-474f-9727-8c0e17d5e522",
+		"name": "Cisco AMP4E",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Audit Logs",
+			"item": [
+				{
+					"name": "Audit Logs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/audit_logs",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"audit_logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Audit Log Types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/audit_log_types",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"audit_log_types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Computer",
+			"item": [
+				{
+					"name": "Computers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('computer', JSON.parse(responseBody)['data'][0]['connector_guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Computer",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers/{{computer}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"{{computer}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Computer > Change Group",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"group_guid\":\"{{group}}\"}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/computers/{{computer}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"{{computer}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Computer",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers/{{computer}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"{{computer}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Computer > Trajectory",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers/{{computer}}/trajectory",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"{{computer}}",
+								"trajectory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Computer > User Trajectory",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers/{{computer}}/user_trajectory",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"{{computer}}",
+								"user_trajectory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Computer > Vulnerabilities",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers/{{computer}}/vulnerabilities",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"{{computer}}",
+								"vulnerabilities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Computer > User Activity",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers/user_activity?q={{user_activity_query}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"user_activity"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "{{user_activity_query}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Computer > Computer Activity",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers/activity?q=1.1.1.1",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"activity"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "1.1.1.1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoint Isolation",
+			"item": [
+				{
+					"name": "Feature Availability Request",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers/{{computer}}/isolation",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"{{computer}}",
+								"isolation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop Endpoint Isolation",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers/{{computer}}/isolation",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"{{computer}}",
+								"isolation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Isolation Status",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/computers/{{computer}}/isolation",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"{{computer}}",
+								"isolation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Isolate Endpoint",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"comment\":\"Thou shall not communicate with other devices\",\"unlock_code\":\"Cisco123\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/computers/{{computer}}/isolation",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"computers",
+								"{{computer}}",
+								"isolation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Event > All Events",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/events",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event > Computer Events",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/events?connector_guid[]={{computer}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"events"
+							],
+							"query": [
+								{
+									"key": "connector_guid[]",
+									"value": "{{computer}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event > Group Events",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/events?group_guid[]={{group}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"events"
+							],
+							"query": [
+								{
+									"key": "group_guid[]",
+									"value": "{{group}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event Types",
+			"item": [
+				{
+					"name": "Event Types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/event_types",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"event_types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event Streams",
+			"item": [
+				{
+					"name": "Event Streams",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/event_streams",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"event_streams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Stream",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/event_streams/{{event_stream}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"event_streams",
+								"{{event_stream}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Event Stream",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"IAcHMChr\",\"event_type\":[1090519054],\"group_guid\":[\"{{group}}\"]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/event_streams",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"event_streams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Stream > Change Event Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"event_type\":[1090519054]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/event_streams/{{event_stream}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"event_streams",
+								"{{event_stream}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Stream",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"event_type\":[1090519054]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/event_streams/{{event_stream}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"event_streams",
+								"{{event_stream}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File Lists",
+			"item": [
+				{
+					"name": "Application Blocking Lists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('application_blocking_list', JSON.parse(responseBody)['data'][0]['guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/file_lists/application_blocking",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"file_lists",
+								"application_blocking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Application Blocking List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/file_lists/{{application_blocking_list}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"file_lists",
+								"{{application_blocking_list}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Application Blocking List > Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/file_lists/{{application_blocking_list}}/files",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"file_lists",
+								"{{application_blocking_list}}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simple Custom Detection Lists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('simple_custom_detection_list', JSON.parse(responseBody)['data'][0]['guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/file_lists/simple_custom_detections",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"file_lists",
+								"simple_custom_detections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simple Custom Detection List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/file_lists/{{simple_custom_detection_list}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"file_lists",
+								"{{simple_custom_detection_list}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simple Custom Detection List > Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/file_lists/{{simple_custom_detection_list}}/files",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"file_lists",
+								"{{simple_custom_detection_list}}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Group",
+			"item": [
+				{
+					"name": "Parent Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('parent_group', JSON.parse(responseBody)['data']['guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"groupViaApiThatWillBeUsedAsParent\",\"description\":\"This is a group created by REST API\"}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/groups",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('group', JSON.parse(responseBody)['data']['guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"groupViaApi\",\"description\":\"This is a group created by REST API\"}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/groups",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('group', JSON.parse(responseBody)['data'][0]['guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/groups",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Groups with Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/groups?name=audit",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "audit"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/groups/{{group}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups",
+								"{{group}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parent Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/groups/{{parent_group}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups",
+								"{{parent_group}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Group > Assign other Windows Policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"windows_policy_guid\":\"{{windows_policy}}\"}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/groups/{{group}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups",
+								"{{group}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parent Group > Make Root Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/groups/{{parent_group}}/parent",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups",
+								"{{parent_group}}",
+								"parent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Group > Set Parent Group (Broken?)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"parent_group_guid\":\"{{parent_group}}\"}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/groups/{{group}}/parent",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups",
+								"{{group}}",
+								"parent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('created_group', '');",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/groups/{{group}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups",
+								"{{group}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parent Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('created_group', '');",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_endpoint}}/groups/{{parent_group}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"groups",
+								"{{parent_group}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Indicator",
+			"item": [
+				{
+					"name": "Indicators",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('indicator', JSON.parse(responseBody)['data'][0]['guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/indicators",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"indicators"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Indicator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('indicator', JSON.parse(responseBody)['data'][0]['guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/indicators/{{indicator}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"indicators",
+								"{{indicator}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Policy",
+			"item": [
+				{
+					"name": "Policies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('windows_policy', JSON.parse(responseBody)['data'][9]['guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/policies",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Policies > Filtered by Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/policies?name=Audit",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"policies"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Audit"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Policies > Filtered by OS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/policies",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('windows_policy', JSON.parse(responseBody)['data'][7]['guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/policies/{{policy}}",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"policies",
+								"{{policy}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Policy XML",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('windows_policy', JSON.parse(responseBody)['data'][7]['guid']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/policies/{{policy}}.xml",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"policies",
+								"{{policy}}.xml"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Application Trajectory",
+			"item": [
+				{
+					"name": "Application Trajectory > Query",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/app_trajectory/queries?ios_bid=com.apple.Safari.SafeBrowsing",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"app_trajectory",
+								"queries"
+							],
+							"query": [
+								{
+									"key": "ios_bid",
+									"value": "com.apple.Safari.SafeBrowsing"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Version",
+			"item": [
+				{
+					"name": "Version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/app_trajectory/queries?ios_bid=com.apple.Safari.SafeBrowsing",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"app_trajectory",
+								"queries"
+							],
+							"query": [
+								{
+									"key": "ios_bid",
+									"value": "com.apple.Safari.SafeBrowsing"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vulnerabilities",
+			"item": [
+				{
+					"name": "Vulnerabilities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('vulnerability', JSON.parse(responseBody)['data'][0]['file']['identity']['sha256']);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/vulnerabilities",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"vulnerabilities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vulnerability > Affected Computers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('vulnerability', JSON.parse(responseBody)['data'][0]['file']['identity']['sha256']);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{api_client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_endpoint}}/vulnerabilities/{{vulnerability}}/computers",
+							"host": [
+								"{{api_endpoint}}"
+							],
+							"path": [
+								"vulnerabilities",
+								"{{vulnerability}}",
+								"computers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_client_id",
+			"value": "MUST-BE-SET"
+		},
+		{
+			"key": "api_key",
+			"value": "MUST-BE-SET"
+		},
+		{
+			"key": "api_endpoint",
+			"value": "https://api.eu.amp.cisco.com/v1"
+		},
+		{
+			"key": "computer",
+			"value": ""
+		},
+		{
+			"key": "user_activity_query",
+			"value": ""
+		},
+		{
+			"key": "group",
+			"value": ""
+		},
+		{
+			"key": "parent_group",
+			"value": ""
+		},
+		{
+			"key": "event_stream",
+			"value": ""
+		},
+		{
+			"key": "application_blocking_list",
+			"value": ""
+		},
+		{
+			"key": "simple_custom_detection_list",
+			"value": ""
+		},
+		{
+			"key": "policy",
+			"value": ""
+		},
+		{
+			"key": "indicator",
+			"value": ""
+		},
+		{
+			"key": "vulnerability",
+			"value": ""
+		}
+	]
+}
