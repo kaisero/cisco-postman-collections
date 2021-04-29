@@ -1,0 +1,3818 @@
+{
+	"info": {
+		"_postman_id": "c4775380-88dc-4ddb-ad0b-09e55ef5c988",
+		"name": "ThreatGrid",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "v2",
+			"item": [
+				{
+					"name": "Artifacts",
+					"item": [
+						{
+							"name": "URL",
+							"item": [
+								{
+									"name": "URL Artifact",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{url_artifact}}?api_key={{api_key}}",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{url_artifact}}"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "URL Artifact AV Signatures",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{url_artifact}}/avsignatures?api_key={{api_key}}",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{url_artifact}}",
+												"avsignatures"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "URL Artifact Flags",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{url_artifact}}?api_key={{api_key}}",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{url_artifact}}"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "URL Artifact Paths",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{url_artifact}}/paths?api_key={{api_key}}",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{url_artifact}}",
+												"paths"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Tag to URL Artifact Tag",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{url_artifact}}/tag?api_key={{api_key}}&tag=set-tag-via-api",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{url_artifact}}",
+												"tag"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												},
+												{
+													"key": "tag",
+													"value": "set-tag-via-api"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "URL Artifact Tags",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{url_artifact}}/tags?api_key={{api_key}}",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{url_artifact}}",
+												"tags"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Tag from  URL Artifact",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{url_artifact}}/tag/set-tag-via-api?api_key={{api_key}}",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{url_artifact}}",
+												"tag",
+												"set-tag-via-api"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "File",
+							"item": [
+								{
+									"name": "File Artifact",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{file_artifact}}?api_key={{api_key}}",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{file_artifact}}"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "File Artifact AV Signatures",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{file_artifact}}/avsignatures?api_key={{api_key}}",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{file_artifact}}",
+												"avsignatures"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "File Artifact Flags",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{file_artifact}}?api_key={{api_key}}",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{file_artifact}}"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "File Artifact Paths",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{api_endpoint}}/api/v2/artifacts/{{file_artifact}}/paths?api_key={{api_key}}",
+											"protocol": "https",
+											"host": [
+												"panacea",
+												"threatgrid",
+												"eu"
+											],
+											"path": [
+												"api",
+												"v2",
+												"artifacts",
+												"{{file_artifact}}",
+												"paths"
+											],
+											"query": [
+												{
+													"key": "api_key",
+													"value": "{{api_key}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Domains",
+					"item": [
+						{
+							"name": "Domain",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/domains/{{domain}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"domains",
+										"{{domain}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Domain Flags",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/domains/{{domain}}/flags?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"domains",
+										"{{domain}}",
+										"flags"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Domain IPs",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/domains/{{domain}}/ips?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"domains",
+										"{{domain}}",
+										"ips"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples associated with Domain",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/domains/{{domain}}/samples?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"domains",
+										"{{domain}}",
+										"samples"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "URLs associated with Domain",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/domains/{{domain}}/urls?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"domains",
+										"{{domain}}",
+										"urls"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "IPs",
+					"item": [
+						{
+							"name": "IP",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/ips/{{ip}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"ips",
+										"{{ip}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "IP Flags",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/ips/{{ip}}/flags?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"ips",
+										"{{ip}}",
+										"flags"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Domains associated with IP",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/ips/{{ip}}/domains?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"ips",
+										"{{ip}}",
+										"domains"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "IOCs associated with IP",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/ips/{{ip}}/indicators?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"ips",
+										"{{ip}}",
+										"indicators"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples associated with IP",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/ips/{{ip}}/samples?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"ips",
+										"{{ip}}",
+										"samples"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "URLs associated with IP",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/ips/{{ip}}/urls?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"ips",
+										"{{ip}}",
+										"urls"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Paths",
+					"item": [
+						{
+							"name": "Artifacts associated with Path",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/paths/{{path}}/artifacts?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"paths",
+										"{{path}}",
+										"artifacts"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Flags associated with Path",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/paths/{{path}}/flags?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"paths",
+										"{{path}}",
+										"flags"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples associated with Path",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/paths/{{path}}/samples?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"paths",
+										"{{path}}",
+										"samples"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Registry Keys",
+					"item": [
+						{
+							"name": "Registry Key",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/registry_keys/{{registry_key}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"registry_keys",
+										"{{registry_key}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registry Key Flags",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/registry_keys/{{registry_key}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"registry_keys",
+										"{{registry_key}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registry Key Name",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/registry_keys/{{registry_key}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"registry_keys",
+										"{{registry_key}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registry Key Samples",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/registry_keys/{{registry_key}}/samples?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"registry_keys",
+										"{{registry_key}}",
+										"samples"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Samples",
+					"item": [
+						{
+							"name": "Samples",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample Analysis (Annotations)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/analysis/annotations?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"analysis",
+										"annotations"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample Analysis (Artifacts)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/analysis/artifacts?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"analysis",
+										"artifacts"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample Analysis (IOCs)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/analysis/iocs?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"analysis",
+										"iocs"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample Analysis (Metadata)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/analysis/metadata?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"analysis",
+										"metadata"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample Analysis (Network Streams)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/analysis/network_streams?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"analysis",
+										"network_streams"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample Analysis (Processes)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/analysis/processes?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"analysis",
+										"processes"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample Flags",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/flags?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"flags"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample State",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/state?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"state"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample Summary",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/summary?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"summary"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample Threat",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/threat?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"threat"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sample Warnings",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/samples/{{sample_id}}/warnings.json?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"samples",
+										"{{sample_id}}",
+										"warnings.json"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Search",
+					"item": [
+						{
+							"name": "Artifacts by SHA256",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/search/artifacts?api_key={{api_key}}&query=7dbfce694b2bcd418994f016078646913fc94db3c2408d5b8e7fa447095f72f8&term=sha256",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"search",
+										"artifacts"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "query",
+											"value": "7dbfce694b2bcd418994f016078646913fc94db3c2408d5b8e7fa447095f72f8"
+										},
+										{
+											"key": "term",
+											"value": "sha256"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Domain by Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/search/domains?api_key={{api_key}}&query=pastebin.com&term=name",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"search",
+										"domains"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "query",
+											"value": "pastebin.com"
+										},
+										{
+											"key": "term",
+											"value": "name"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "IP by Network Destination",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api_endpoint}}/api/v2/search/ips?api_key={{api_key}}&query=159.69.47.0%2F24&term=network_dst",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v2",
+										"search",
+										"ips"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "query",
+											"value": "159.69.47.0%2F24"
+										},
+										{
+											"key": "term",
+											"value": "network_dst"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "v3",
+			"item": [
+				{
+					"name": "Aggregations",
+					"item": [
+						{
+							"name": "Submissions by Unique Submitters",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/aggregations/submissions?api_key={{api_key}}&buckets=unique-submitters",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"aggregations",
+										"submissions"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "buckets",
+											"value": "unique-submitters"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submissions by ThreatScore",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/aggregations/submissions?api_key={{api_key}}&buckets=threatscore",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"aggregations",
+										"submissions"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "buckets",
+											"value": "threatscore"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AVG ThreatScore of Submissions",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/aggregations/submissions?api_key={{api_key}}&buckets=average-threat-score",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"aggregations",
+										"submissions"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "buckets",
+											"value": "average-threat-score"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Critical Submissions",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/aggregations/submissions?api_key={{api_key}}&buckets=convictions",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"aggregations",
+										"submissions"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "buckets",
+											"value": "convictions"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples by Week",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/aggregations/submissions?api_key={{api_key}}&buckets=week",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"aggregations",
+										"submissions"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "buckets",
+											"value": "week"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples by Week Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/aggregations/submissions?api_key={{api_key}}&buckets=week",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"aggregations",
+										"submissions"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "buckets",
+											"value": "week"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples by VM Environment",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/aggregations/submissions?api_key={{api_key}}&buckets=environment",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"aggregations",
+										"submissions"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "buckets",
+											"value": "environment"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples by Domain in IOCs",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/aggregations/submissions?api_key={{api_key}}&buckets=domain",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"aggregations",
+										"submissions"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "buckets",
+											"value": "domain"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples by Domain in IOCs Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/aggregations/submissions?api_key={{api_key}}&buckets=domain",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"aggregations",
+										"submissions"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "buckets",
+											"value": "domain"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples by IP in IOC",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/aggregations/submissions?api_key={{api_key}}&buckets=indicator",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"aggregations",
+										"submissions"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "buckets",
+											"value": "indicator"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Configuration",
+					"item": [
+						{
+							"name": "Network Exits",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/configuration/network-exits?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"configuration",
+										"network-exits"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Virtual Machines",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/configuration/vms?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"configuration",
+										"vms"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Network Exits Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/configuration/playbooks?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"configuration",
+										"playbooks"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Docs",
+					"item": [
+						{
+							"name": "Documentation Tree",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"api\": \"/api/v3/users/:login/api-key\"}"
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/doc-tree?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"doc-tree"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search for Feeds Documentation",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"api\": \"/api/v3/users/:login/api-key\"}"
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/doc-search?api_key={{api_key}}&q=feeds",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"doc-search"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										},
+										{
+											"key": "q",
+											"value": "feeds"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Docs",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"api\": \"/api/v3/users/:login/api-key\"}"
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/docs?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"docs"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Feeds",
+					"item": [
+						{
+							"name": "Autorun Registry",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/feeds/autorun-registry.json?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"feeds",
+										"autorun-registry.json"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Health",
+					"item": [
+						{
+							"name": "Health",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/organizations/{{organization_id}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"organizations",
+										"{{organization_id}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submission Health",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/health/submission?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"health",
+										"submission"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Indicators",
+					"item": [
+						{
+							"name": "Indicator",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/indicators/files-deleted-used-batch?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"indicators",
+										"files-deleted-used-batch"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Indicators",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/indicators?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"indicators"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Indicator Categories",
+					"item": [
+						{
+							"name": "Indicator Categories",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/indicator-categories?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"indicator-categories"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exfiltration Category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/indicator-categories/exfiltration?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"indicator-categories",
+										"exfiltration"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Organizations",
+					"item": [
+						{
+							"name": "Organization",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/organizations/{{organization_id}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"organizations",
+										"{{organization_id}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Devices",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/organizations/{{organization_id}}/devices?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"organizations",
+										"{{organization_id}}",
+										"devices"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Entitlements",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/organizations/{{organization_id}}/entitlements?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"organizations",
+										"{{organization_id}}",
+										"entitlements"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rate Limit",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/organizations/{{organization_id}}/rate-limit?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"organizations",
+										"{{organization_id}}",
+										"rate-limit"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/organizations/{{organization_id}}/samples?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"organizations",
+										"{{organization_id}}",
+										"samples"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Activity",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/organizations/{{organization_id}}/user-activity?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"organizations",
+										"{{organization_id}}",
+										"user-activity"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Quota",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/organizations/{{organization_id}}/user-quota?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"organizations",
+										"{{organization_id}}",
+										"user-quota"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/organizations/{{organization_id}}/users?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"organizations",
+										"{{organization_id}}",
+										"users"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Samples",
+					"item": [
+						{
+							"name": "Sample",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/samples/{{sample_id}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"samples",
+										"{{sample_id}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "User Details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/users/{{username}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"users",
+										"{{username}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/users/|{{username}}?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"users",
+										"|{{username}}"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Activity",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/users/{{username}}/activity?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"users",
+										"{{username}}",
+										"activity"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Organization",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/users/{{username}}/organization?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"users",
+										"{{username}}",
+										"organization"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rate Limit",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/users/{{username}}/rate-limit?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"users",
+										"{{username}}",
+										"rate-limit"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rate Limit Entries",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/users/{{username}}/rate-limit/entries?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"users",
+										"{{username}}",
+										"rate-limit",
+										"entries"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Samples",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/users/{{username}}/samples?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"users",
+										"{{username}}",
+										"samples"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Session",
+					"item": [
+						{
+							"name": "whoami",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api_endpoint}}/api/v3/session/whoami?api_key={{api_key}}",
+									"protocol": "https",
+									"host": [
+										"panacea",
+										"threatgrid",
+										"eu"
+									],
+									"path": [
+										"api",
+										"v3",
+										"session",
+										"whoami"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{api_key}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_key",
+			"value": "None"
+		},
+		{
+			"key": "api_endpoint",
+			"value": "None"
+		},
+		{
+			"key": "username",
+			"value": "None"
+		},
+		{
+			"key": "organization_id",
+			"value": "None"
+		},
+		{
+			"key": "url_artifact",
+			"value": "fe428a6300e00864a5453458996d15aebbc4d8a38c820b2a027de87a909e3f97"
+		},
+		{
+			"key": "file_artifact",
+			"value": "4c1dc737915d76b7ce579abddaba74ead6fdb5b519a1ea45308b8c49b950655c"
+		},
+		{
+			"key": "domain",
+			"value": "contsittseartu.work"
+		},
+		{
+			"key": "ip",
+			"value": "193.53.126.160"
+		},
+		{
+			"key": "path",
+			"value": "almost.pdf.zip"
+		},
+		{
+			"key": "registry_key",
+			"value": "USER%5cS-1-5-21-2580483871-590521980-3826313501-500%5cSOFTWARE%5cMICROSOFT%5cINTERNET EXPLORER%5cEUPP%5cDSP"
+		},
+		{
+			"key": "sample_id",
+			"value": "0026156ea1079e7f12201563708d5398"
+		},
+		{
+			"key": "url_sha256",
+			"value": "f501e3c74311a7d142608a1b810141aa04c4c8d03787a2df72240fc5eb1691e2"
+		}
+	]
+}
