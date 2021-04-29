@@ -1,6 +1,6 @@
 # Cisco Secure Malware Analytics (ThreatGrid)
 
-This collection contains examples for Cisco Secure Malware Analytics REST API. It includes 585 examples for the various endpoint functions.
+This collection contains examples for Cisco Secure Malware Analytics REST API. It includes 85 examples for the various endpoint functions.
 
 The following variables must be set to use the Postman collection:
 
