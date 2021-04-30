@@ -1,0 +1,4589 @@
+{
+	"info": {
+		"_postman_id": "f56fdce9-0eed-4a53-91ee-1a8dd1b0530c",
+		"name": "Firepower Management Center",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Audit",
+			"item": [
+				{
+					"name": "AuditRecords",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-auth-access-token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}://{{hostname}}/api/fmc_platform/v1/domain/{{domain_id}}/audit/auditrecords",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"fmc_platform",
+								"v1",
+								"domain",
+								"{{domain_id}}",
+								"audit",
+								"auditrecords"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deployment",
+			"item": [
+				{
+					"name": "DeployableDevices",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody)",
+									"for (var a in jsonData['items']){",
+									"    if (jsonData['items'][a]['name'] == pm.collectionVariables.get('device')){",
+									"        pm.collectionVariables.set('deployment_timestamp', jsonData['items'][a]['version']);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-auth-access-token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/deployment/deployabledevices?filter={{device}}",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"fmc_config",
+								"v1",
+								"domain",
+								"{{domain_id}}",
+								"deployment",
+								"deployabledevices"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "{{device}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deployment Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-auth-access-token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"DeploymentRequest\",\n    \"version\": \"{{deployment_timestamp}}\",\n    \"forceDeploy\": false,\n    \"ignoreWarning\": true,\n    \"deviceList\": [\n        \"{{device_id}}\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/deployment/deploymentrequests",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"fmc_config",
+								"v1",
+								"domain",
+								"{{domain_id}}",
+								"deployment",
+								"deploymentrequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Job History",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-auth-access-token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/deployment/jobhistories",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"fmc_config",
+								"v1",
+								"domain",
+								"{{domain_id}}",
+								"deployment",
+								"jobhistories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Devices",
+			"item": [
+				{
+					"name": "DeviceRecords",
+					"item": [
+						{
+							"name": "Physical Interfaces",
+							"item": [
+								{
+									"name": "Physical Interfaces",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}/physicalinterfaces?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"devices",
+												"devicerecords",
+												"{{device_id}}",
+												"physicalinterfaces"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Redundant Interfaces",
+							"item": [
+								{
+									"name": "Redundant Interface",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}/redundantinterfaces?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"devices",
+												"devicerecords",
+												"{{device_id}}",
+												"redundantinterfaces"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Inline Set",
+							"item": [
+								{
+									"name": "Inline Sets",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}/inlinesets?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"devices",
+												"devicerecords",
+												"{{device_id}}",
+												"inlinesets"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Interface Events",
+							"item": [
+								{
+									"name": "Interface Events",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}/interfaceevents?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"devices",
+												"devicerecords",
+												"{{device_id}}",
+												"interfaceevents"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Sub Interfaces",
+							"item": [
+								{
+									"name": "Sub Interfaces",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}/subinterfaces?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"devices",
+												"devicerecords",
+												"{{device_id}}",
+												"subinterfaces"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Operational",
+							"item": [
+								{
+									"name": "Metrics",
+									"item": [
+										{
+											"name": "CPU Usage",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "X-auth-access-token",
+														"type": "text",
+														"value": "{{token}}"
+													}
+												],
+												"url": {
+													"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}/operational/metrics?filter=metric:cpu&expanded=True",
+													"protocol": "{{protocol}}",
+													"host": [
+														"{{hostname}}"
+													],
+													"path": [
+														"api",
+														"fmc_config",
+														"v1",
+														"domain",
+														"{{domain_id}}",
+														"devices",
+														"devicerecords",
+														"{{device_id}}",
+														"operational",
+														"metrics"
+													],
+													"query": [
+														{
+															"key": "filter",
+															"value": "metric:cpu"
+														},
+														{
+															"key": "expanded",
+															"value": "True"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Memory Usage",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "X-auth-access-token",
+														"type": "text",
+														"value": "{{token}}"
+													}
+												],
+												"url": {
+													"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}/operational/metrics?filter=metric:memory&expanded=True",
+													"protocol": "{{protocol}}",
+													"host": [
+														"{{hostname}}"
+													],
+													"path": [
+														"api",
+														"fmc_config",
+														"v1",
+														"domain",
+														"{{domain_id}}",
+														"devices",
+														"devicerecords",
+														"{{device_id}}",
+														"operational",
+														"metrics"
+													],
+													"query": [
+														{
+															"key": "filter",
+															"value": "metric:memory"
+														},
+														{
+															"key": "expanded",
+															"value": "True"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Commands",
+									"item": [
+										{
+											"name": "show ip",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "X-auth-access-token",
+														"type": "text",
+														"value": "{{token}}"
+													}
+												],
+												"url": {
+													"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}/operational/commands?command=show%20ip",
+													"protocol": "{{protocol}}",
+													"host": [
+														"{{hostname}}"
+													],
+													"path": [
+														"api",
+														"fmc_config",
+														"v1",
+														"domain",
+														"{{domain_id}}",
+														"devices",
+														"devicerecords",
+														"{{device_id}}",
+														"operational",
+														"commands"
+													],
+													"query": [
+														{
+															"key": "command",
+															"value": "show%20ip"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show version",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "X-auth-access-token",
+														"type": "text",
+														"value": "{{token}}"
+													}
+												],
+												"url": {
+													"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}/operational/commands?command=show%20version",
+													"protocol": "{{protocol}}",
+													"host": [
+														"{{hostname}}"
+													],
+													"path": [
+														"api",
+														"fmc_config",
+														"v1",
+														"domain",
+														"{{domain_id}}",
+														"devices",
+														"devicerecords",
+														"{{device_id}}",
+														"operational",
+														"commands"
+													],
+													"query": [
+														{
+															"key": "command",
+															"value": "show%20version"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Register Device",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{device}}\",\n    \"hostName\": \"{{device}}\",\n    \"regKey\": \"{{device_regkey}}\",\n    \"type\": \"Device\",\n    \"license_caps\": [\n        \"MALWARE\",\n        \"URLFilter\",\n        \"PROTECT\",\n        \"CONTROL\",\n        \"VPN\"\n    ],\n    \"accessPolicy\": {\n        \"id\": \"{{accesspolicy_id}}\",\n        \"type\": \"AccessPolicy\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"devices",
+										"devicerecords"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Device Licenses",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"{{device_id}}\",\n    \"name\": \"{{device}}\",\n    \"regKey\": \"{{device_regkey}}\",\n    \"hostName\": \"{{device}}\",\n    \"type\": \"Device\",\n    \"license_caps\": [\n        \"BASE\",\n        \"PROTECT\",\n        \"MALWARE\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"devices",
+										"devicerecords",
+										"{{device_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deregister Device",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == 'ftd01.example.com'){",
+											"        pm.collectionVariables.set('device', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{device}}\",\n    \"hostName\": \"{{device}}\",\n    \"regKey\": \"{{device_regkey}}\",\n    \"type\": \"Device\",\n    \"license_caps\": [\n        \"MALWARE\",\n        \"URLFilter\",\n        \"PROTECT\",\n        \"CONTROL\",\n        \"VPN\"\n    ],\n    \"accessPolicy\": {\n        \"id\": \"{{accesspolicy_id}}\",\n        \"type\": \"AccessPolicy\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"devices",
+										"devicerecords",
+										"{{device_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find DeviceRecord ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == pm.collectionVariables.get('device')){",
+											"        pm.collectionVariables.set('device_id', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"devices",
+										"devicerecords"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeviceRecord",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords/{{device_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"devices",
+										"devicerecords",
+										"{{device_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeviceRecords",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/devices/devicerecords",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"devices",
+										"devicerecords"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Object",
+			"item": [
+				{
+					"name": "Network",
+					"item": [
+						{
+							"name": "Overrides",
+							"item": [
+								{
+									"name": "Override",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"overrides\": {\n        \"parent\": {\n            \"id\": \"{{network_id}}\"\n        },\n        \"target\": {\n            \"id\": \"{{device_id}}\",\n            \"type\": \"Device\"\n        }\n    },\n    \"value\": \"198.18.201.0/24\",\n    \"name\": \"{{network}}\",\n    \"id\": \"{{network_id}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networks/{{network_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"object",
+												"networks",
+												"{{network_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Override",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"00505699-76B7-0ed3-0000-077309525737\",\n    \"overrides\": {\n        \"parent\": {\n            \"id\": \"00505699-76B7-0ed3-0000-077309525737\",\n            \"type\": \"Network\"\n        },\n        \"target\": {\n            \"name\": \"ftd01.example.com\",\n            \"id\": \"0ff8161e-096e-11eb-8ec0-cb721f246e60\",\n            \"type\": \"Device\"\n        }\n    },\n    \"value\": \"198.18.200.0/24\",\n    \"name\": \"NetObjWithOverrides\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networks/{{network_id}}?overrideTargetId={{device_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"object",
+												"networks",
+												"{{network_id}}"
+											],
+											"query": [
+												{
+													"key": "overrideTargetId",
+													"value": "{{device_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Overrides",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networks/{{network_id}}/overrides",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"object",
+												"networks",
+												"{{network_id}}",
+												"overrides"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Networks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networks?expanded=True&limit=100",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"networks"
+									],
+									"query": [
+										{
+											"key": "expanded",
+											"value": "True"
+										},
+										{
+											"key": "limit",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Network",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set('network_id', jsonData['id'])",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{network}}\",\n    \"description\": \"Created via Postman\",\n    \"value\": \"198.18.100.0/24\",\n    \"overridable\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networks",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"networks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Network",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networks/{{network_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"networks",
+										"{{network_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Network ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == pm.collectionVariables.get('network')){",
+											"        pm.collectionVariables.set('network_id', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networks?limit=1000",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"networks"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PortObjectGroup",
+					"item": [
+						{
+							"name": "PortObjectGroups",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == 'ACCESS-POLICY'){",
+											"        postman.setEnvironmentVariable('accesspolicy', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/portobjectgroups",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"portobjectgroups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PortObjectGroup",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == 'ACCESS-POLICY'){",
+											"        postman.setEnvironmentVariable('accesspolicy', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/portobjectgroups/{{portgroup_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"portobjectgroups",
+										"{{portgroup_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find PortObjectGroup ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == pm.collectionVariables.get('portgroup')){",
+											"        pm.collectionVariables.get('portgroup_id', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/portobjectgroups?limit=1000",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"portobjectgroups"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ExtendedAccessList",
+					"item": [
+						{
+							"name": "ExtendedAccessLists",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == 'ACCESS-POLICY'){",
+											"        postman.setEnvironmentVariable('accesspolicy', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/extendedaccesslists?expanded=True",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"extendedaccesslists"
+									],
+									"query": [
+										{
+											"key": "expanded",
+											"value": "True"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ProtocolPortObject",
+					"item": [
+						{
+							"name": "Find ProtocolPortObject ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData[\"items\"]){",
+											"    if (jsonData[\"items\"][a][\"name\"] == pm.collectionVariables.get(\"port\")){",
+											"        pm.collectionVariables.set(\"port_id\", jsonData[\"items\"][a][\"id\"]);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/protocolportobjects?limit=100",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"protocolportobjects"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ProtocolPortObject",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData[\"items\"]){",
+											"    if (jsonData[\"items\"][a][\"name\"] == pm.collectionVariables.get(\"port\")){",
+											"        postman.collectionVariables.set(\"port_id\", jsonData[\"items\"][a][\"id\"]);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/protocolportobjects/{{port_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"protocolportobjects",
+										"{{port_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "NetworkGroup",
+					"item": [
+						{
+							"name": "Overrides",
+							"item": [
+								{
+									"name": "Overrides",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"for (var a in jsonData['items']){",
+													"    if (jsonData['items'][a]['name'] == 'ACCESS-POLICY'){",
+													"        postman.setEnvironmentVariable('accesspolicy', jsonData['items'][a]['id']);",
+													"    }",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networkgroups/{{networkgroup_id}}/overrides",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"object",
+												"networkgroups",
+												"{{networkgroup_id}}",
+												"overrides"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Override",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"for (var a in jsonData['items']){",
+													"    if (jsonData['items'][a]['name'] == pm.collectionVariables.get('network_with_overrides')){",
+													"        pm.collectionVariables.set('network_with_overrides_id', jsonData['items'][a]['id']);",
+													"    }",
+													"}",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"overrides\": {\n        \"parent\": {\n            \"id\": \"{{networkgroup_id}}\"\n        },\n        \"target\": {\n            \"id\": \"{{device_id}}\",\n            \"type\": \"Device\"\n        }\n    },\n    \"literals\": [\n        {\n            \"type\": \"Network\",\n            \"value\": \"198.18.1.0/24\"\n        },\n        {\n            \"type\": \"Network\",\n            \"value\": \"198.18.2.0/24\"\n        },\n        {\n            \"type\": \"Host\",\n            \"value\": \"198.18.1.1\"\n        }\n    ],    \"name\": \"{{networkgroup}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networkgroups/{{networkgroup_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"object",
+												"networkgroups",
+												"{{networkgroup_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Override",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"00505699-76B7-0ed3-0000-077309525737\",\n    \"overrides\": {\n        \"parent\": {\n            \"id\": \"00505699-76B7-0ed3-0000-077309525737\",\n            \"type\": \"Network\"\n        },\n        \"target\": {\n            \"name\": \"ftd01.example.com\",\n            \"id\": \"0ff8161e-096e-11eb-8ec0-cb721f246e60\",\n            \"type\": \"Device\"\n        }\n    },\n    \"value\": \"198.18.200.0/24\",\n    \"name\": \"NetObjWithOverrides\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networkgroups/{{networkgroup_id}}?overrideTargetId={{device_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"object",
+												"networkgroups",
+												"{{networkgroup_id}}"
+											],
+											"query": [
+												{
+													"key": "overrideTargetId",
+													"value": "{{device_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Find NetworkGroup ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == pm.collectionVariables.get('networkgroup')){",
+											"        pm.collectionVariables.set('networkgroup_id', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networkgroups?expanded=True&limit=1000",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"networkgroups"
+									],
+									"query": [
+										{
+											"key": "expanded",
+											"value": "True"
+										},
+										{
+											"key": "limit",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NetworkGroups",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networkgroups?expanded=True",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"networkgroups"
+									],
+									"query": [
+										{
+											"key": "expanded",
+											"value": "True"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NetworkGroup",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networkgroups/{{networkgroup_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"networkgroups",
+										"{{networkgroup_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NetworkGroup",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set('networkgroup_id', jsonData['id']);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"literals\": [\n        {\n            \"type\": \"Network\",\n            \"value\": \"198.18.1.0/24\"\n        },\n        {\n            \"type\": \"Network\",\n            \"value\": \"198.18.2.0/24\"\n        }\n    ],\n    \"overridable\": true,\n    \"description\": \"Managed by Postman\",\n    \"name\": \"{{networkgroup}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networkgroups",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"networkgroups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NetworkGroup",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/networkgroups/{{networkgroup_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"networkgroups",
+										"{{networkgroup_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "URL",
+					"item": [
+						{
+							"name": "Overrides",
+							"item": [
+								{
+									"name": "Overrides",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"for (var a in jsonData['items']){",
+													"    if (jsonData['items'][a]['name'] == 'ACCESS-POLICY'){",
+													"        postman.setEnvironmentVariable('accesspolicy', jsonData['items'][a]['id']);",
+													"    }",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/urls/{{url_id}}/overrides?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"object",
+												"urls",
+												"{{url_id}}",
+												"overrides"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Override",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"pm.collectionVariables.set('url_id', jsonData['id'])"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"overrides\": {\n        \"parent\": {\n            \"id\": \"{{url_id}}\"\n        },\n        \"target\": {\n            \"id\": \"{{device_id}}\",\n            \"type\": \"Device\"\n        }\n    },\n    \"url\": \"ftd.example.com\",\n    \"name\": \"{{url}}\",\n    \"id\": \"{{url_id}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/urls/{{url_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"object",
+												"urls",
+												"{{url_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Override",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/urls/{{url_id}}?overrideTargetId={{device_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"object",
+												"urls",
+												"{{url_id}}"
+											],
+											"query": [
+												{
+													"key": "overrideTargetId",
+													"value": "{{device_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "URL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set('url_id', jsonData['id'])"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{url}}\",\n    \"url\": \"www.example.com\",\n    \"overridable\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/urls",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"urls"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find URL ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == pm.collectionVariables.get('url')){",
+											"        pm.collectionVariables.set('url_id', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/urls?expanded=True&limit=1000",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"urls"
+									],
+									"query": [
+										{
+											"key": "expanded",
+											"value": "True"
+										},
+										{
+											"key": "limit",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "URLs",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/urls?expanded=True",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"urls"
+									],
+									"query": [
+										{
+											"key": "expanded",
+											"value": "True"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "URL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == 'ACCESS-POLICY'){",
+											"        postman.setEnvironmentVariable('accesspolicy', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/urls/{{url_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"urls",
+										"{{url_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "URL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/object/urls/{{url_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"object",
+										"urls",
+										"{{url_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Policy",
+			"item": [
+				{
+					"name": "AccessPolicy",
+					"item": [
+						{
+							"name": "AccessRule",
+							"item": [
+								{
+									"name": "AccessRule",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"pm.collectionVariables.set(\"accessrule_id\", jsonData[\"id\"]);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"action\": \"ALLOW\",\n    \"enabled\": true,\n    \"type\": \"AccessRule\",\n    \"name\": \"{{accessrule}}\",\n    \"sendEventsToFMC\": true,\n    \"logFiles\": false,\n    \"logBegin\": true,\n    \"logEnd\": false,\n    \"newComments\": [\n        \"Rule created via Postman\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies/{{accesspolicy_id}}/accessrules",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"accesspolicies",
+												"{{accesspolicy_id}}",
+												"accessrules"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "AccessRule",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"action\": \"BLOCK\",\n    \"enabled\": true,\n    \"type\": \"AccessRule\",\n    \"name\": \"UpdatedRuleName\",\n    \"sendEventsToFMC\": false,\n    \"logFiles\": false,\n    \"logBegin\": false,\n    \"logEnd\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies/{{accesspolicy_id}}/accessrules",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"accesspolicies",
+												"{{accesspolicy_id}}",
+												"accessrules"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "AccessRules",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"for (var a in jsonData['items']){",
+													"    if (jsonData['items'][a]['name'] == 'ACCESSRULE'){",
+													"        postman.setEnvironmentVariable('accessrule', jsonData['items'][a]['id']);",
+													"    }",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies/{{accesspolicy_id}}/accessrules",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"accesspolicies",
+												"{{accesspolicy_id}}",
+												"accessrules"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "AccessRule",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"for (var a in jsonData['items']){",
+													"    if (jsonData['items'][a]['name'] == 'ACCESSRULE'){",
+													"        postman.setEnvironmentVariable('accessrule', jsonData['items'][a]['id']);",
+													"    }",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies/{{accesspolicy_id}}/accessrules/{{accessrule_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"accesspolicies",
+												"{{accesspolicy_id}}",
+												"accessrules",
+												"{{accessrule_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find Accessrule ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"for (var a in jsonData[\"items\"]){",
+													"    if (jsonData[\"items\"][a][\"name\"] == pm.collectionVariables.get(\"accessrule\")){",
+													"        pm.collectionVariables.set(\"accessrule_id\", jsonData[\"items\"][a][\"id\"]);",
+													"    }",
+													"}",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies/{{accesspolicy_id}}/accessrules?limit=1000",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"accesspolicies",
+												"{{accesspolicy_id}}",
+												"accessrules"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "1000"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "AccessRule",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies/{{accesspolicy_id}}/accessrules/{{accessrule_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"accesspolicies",
+												"{{accesspolicy_id}}",
+												"accessrules",
+												"{{accessrule_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Hitcounts",
+							"item": [
+								{
+									"name": "Get Hitcounts for Device",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies/{{accesspolicy_id}}/operational/hitcounts?filter=deviceId:{{device_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"accesspolicies",
+												"{{accesspolicy_id}}",
+												"operational",
+												"hitcounts"
+											],
+											"query": [
+												{
+													"key": "filter",
+													"value": "deviceId:{{device_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Hitcounts for Device",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies/{{accesspolicy_id}}/operational/hitcounts?filter=deviceId:{{device_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"accesspolicies",
+												"{{accesspolicy_id}}",
+												"operational",
+												"hitcounts"
+											],
+											"query": [
+												{
+													"key": "filter",
+													"value": "deviceId:{{device_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Reset Hitcounts for Device",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies/{{accesspolicy_id}}/operational/hitcounts?filter=deviceId:{{device_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"accesspolicies",
+												"{{accesspolicy_id}}",
+												"operational",
+												"hitcounts"
+											],
+											"query": [
+												{
+													"key": "filter",
+													"value": "deviceId:{{device_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "AccessPolicy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"pm.collectionVariables.set(\"accesspolicy_id\", jsonData[\"id\"]);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"{{accesspolicy}}\",\n    \"description\": \"Created by Postman\",\n    \"defaultAction\": {\n        \"action\": \"BLOCK\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"accesspolicies"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "AccessPolicy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies/{{accesspolicy_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"accesspolicies",
+										"{{accesspolicy_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AccessPolicies",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData[\"items\"]){",
+											"    if (jsonData[\"items\"][a][\"name\"] == pm.collectionVariables.get(\"accesspolicy\")){",
+											"        pm.collectionVariables.set(\"accesspolicy_id\", jsonData[\"items\"][a][\"id\"]);",
+											"    }",
+											"}",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"accesspolicies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find AccessPolicy ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData[\"items\"]){",
+											"    if (jsonData[\"items\"][a][\"name\"] == pm.collectionVariables.get(\"accesspolicy\")){",
+											"        pm.collectionVariables.set(\"accesspolicy_id\", jsonData[\"items\"][a][\"id\"]);",
+											"    }",
+											"}",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/accesspolicies?limit=1000",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"accesspolicies"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "NatPolicy",
+					"item": [
+						{
+							"name": "NatRule",
+							"item": [
+								{
+									"name": "NatRules",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftdnatpolicies/{{natpolicy_id}}/natrules?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"ftdnatpolicies",
+												"{{natpolicy_id}}",
+												"natrules"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "NatRule",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftdnatpolicies/{{natpolicy_id}}/natrules/{{natrule_id}}",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"ftdnatpolicies",
+												"{{natpolicy_id}}",
+												"natrules",
+												"{{natrule_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "NatPolicy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set('natpolicy_id', jsonData['id'])"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{natpolicy}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftdnatpolicies",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"ftdnatpolicies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NatPolicy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftdnatpolicies/{{natpolicy_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"ftdnatpolicies",
+										"{{natpolicy_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NatPolicies",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftdnatpolicies?expanded=True",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"ftdnatpolicies"
+									],
+									"query": [
+										{
+											"key": "expanded",
+											"value": "True"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change NatPolicy name",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set('natpolicy', jsonData['name'])"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"PostMan-NatPolicyUpdated\",\n    \"id\": \"{{natpolicy_id}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftdnatpolicies/{{natpolicy_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"ftdnatpolicies",
+										"{{natpolicy_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NatPolicy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftdnatpolicies/{{natpolicy_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"ftdnatpolicies",
+										"{{natpolicy_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "S2SVPN",
+					"item": [
+						{
+							"name": "Endpoints",
+							"item": [
+								{
+									"name": "Create S2SVPN Endpoints",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n   \"name\": \"{{device}}\",\n   \"extranet\":false,\n   \"device\":{\n      \"name\": \"{{device}}\",\n      \"id\":\"{{device_id}}\"\n   },\n   \"interface\":{\n      \"id\":\"00505699-76B7-0ed3-0000-034359745832\"\n   },\n   \"protectedNetworks\":{\n      \"networks\":[\n         {\n            \"id\":\"00505699-76B7-0ed3-0000-077309428393\"\n         }\n      ]\n   },\n   \"connectionType\": \"BIDIRECTIONAL\",\n   \"peerType\": \"PEER\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftds2svpns/{{s2svpn_id}}/endpoints?bulk=False",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"ftds2svpns",
+												"{{s2svpn_id}}",
+												"endpoints"
+											],
+											"query": [
+												{
+													"key": "bulk",
+													"value": "False"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Endpoints",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"DEV-VPN\",\n    \"topologyType\": \"POINT_TO_POINT\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftds2svpns/{{s2svpn_id}}/endpoints?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"ftds2svpns",
+												"{{s2svpn_id}}",
+												"endpoints"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "IkeSettings",
+							"item": [
+								{
+									"name": "IkeSettings",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftds2svpns/{{s2svpn_id}}/ikesettings?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"ftds2svpns",
+												"{{s2svpn_id}}",
+												"ikesettings"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "IpsecSettings",
+							"item": [
+								{
+									"name": "IpsecSettings",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftds2svpns/{{s2svpn_id}}/ipsecsettings?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"ftds2svpns",
+												"{{s2svpn_id}}",
+												"ipsecsettings"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "AdvancedSettings",
+							"item": [
+								{
+									"name": "AdvancedSettings",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-auth-access-token",
+												"type": "text",
+												"value": "{{token}}"
+											}
+										],
+										"url": {
+											"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftds2svpns/{{s2svpn_id}}/advancedsettings?expanded=True",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{hostname}}"
+											],
+											"path": [
+												"api",
+												"fmc_config",
+												"v1",
+												"domain",
+												"{{domain_id}}",
+												"policy",
+												"ftds2svpns",
+												"{{s2svpn_id}}",
+												"advancedsettings"
+											],
+											"query": [
+												{
+													"key": "expanded",
+													"value": "True"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "S2SVPN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set('s2svpn_id', jsonData['id'])"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{s2svpn}}\",\n    \"topologyType\": \"POINT_TO_POINT\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftds2svpns",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"ftds2svpns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "S2SVPNs",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftds2svpns",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"ftds2svpns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "S2SVPN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftds2svpns/{{s2svpn_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"ftds2svpns",
+										"{{s2svpn_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "S2SVPN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftds2svpns/{{s2svpn_id}}",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"ftds2svpns",
+										"{{s2svpn_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find S2SVPN ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData[\"items\"]){",
+											"    if (jsonData[\"items\"][a][\"name\"] == pm.collectionVariables.get(\"s2svpn\")){",
+											"        pm.collectionVariables.set(\"s2svpn_id\", jsonData[\"items\"][a][\"id\"]);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/ftds2svpns?limit=1000",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"ftds2svpns"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SyslogAlert",
+					"item": [
+						{
+							"name": "SyslogAlerts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == pm.collectionVariables.get('syslog_alert')){",
+											"        pm.collectionVariables.set('syslog_alert_id', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/syslogalerts",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"syslogalerts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SnmpAlert",
+					"item": [
+						{
+							"name": "SnmpAlerts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"for (var a in jsonData['items']){",
+											"    if (jsonData['items'][a]['name'] == pm.collectionVariables.get('snmp_alert')){",
+											"        pm.collectionVariables.set('snmp_alert_id', jsonData['items'][a]['id']);",
+											"    }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-auth-access-token",
+										"type": "text",
+										"value": "{{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/policy/snmpalerts",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"api",
+										"fmc_config",
+										"v1",
+										"domain",
+										"{{domain_id}}",
+										"policy",
+										"snmpalerts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Policy Assignment",
+			"item": [
+				{
+					"name": "PolicyAssignments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-auth-access-token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/assignment/policyassignments",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"fmc_config",
+								"v1",
+								"domain",
+								"{{domain_id}}",
+								"assignment",
+								"policyassignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apply AccessPolicy to Device",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-auth-access-token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"PolicyAssignment\",\n    \"policy\": {\n        \"type\": \"AccessPolicy\",\n        \"id\": \"{{accesspolicy_id}}\"\n    },\n    \"targets\": [\n        {\n            \"id\": \"{{device_id}}\",\n            \"type\": \"Device\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{hostname}}/api/fmc_config/v1/domain/{{domain_id}}/assignment/policyassignments",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"fmc_config",
+								"v1",
+								"domain",
+								"{{domain_id}}",
+								"assignment",
+								"policyassignments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Info",
+			"item": [
+				{
+					"name": "ServerVersion",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-auth-access-token",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}://{{hostname}}/api/fmc_platform/v1/info/serverversion",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"api",
+								"fmc_platform",
+								"v1",
+								"info",
+								"serverversion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var token = postman.getResponseHeader(\"X-auth-access-token\");",
+							"pm.collectionVariables.set(\"token\", token);",
+							"",
+							"var jsonData = JSON.parse(postman.getResponseHeader(\"DOMAINS\"));",
+							"for (var a in jsonData){",
+							"    if (jsonData[a]['name'] == pm.collectionVariables.get(\"domain\")){",
+							"        pm.collectionVariables.set(\"domain_id\", jsonData[a][\"uuid\"]);",
+							"    }",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{protocol}}://{{hostname}}/api/fmc_platform/v1/auth/generatetoken",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"fmc_platform",
+						"v1",
+						"auth",
+						"generatetoken"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hostname",
+			"value": "fmc.example.com"
+		},
+		{
+			"key": "username",
+			"value": "api"
+		},
+		{
+			"key": "password",
+			"value": "Cisco123"
+		},
+		{
+			"key": "domain",
+			"value": "Global"
+		},
+		{
+			"key": "domain_id",
+			"value": ""
+		},
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "prefilterpolicy",
+			"value": "Postman-PrefilterPolicy"
+		},
+		{
+			"key": "prefilterpolicy_id",
+			"value": ""
+		},
+		{
+			"key": "accesspolicy",
+			"value": "Postman-AccessPolicy"
+		},
+		{
+			"key": "accesspolicy_id",
+			"value": ""
+		},
+		{
+			"key": "accessrule",
+			"value": "Postman-AccessRule"
+		},
+		{
+			"key": "accessrule_id",
+			"value": ""
+		},
+		{
+			"key": "filepolicy",
+			"value": "Postman-FilePolicy"
+		},
+		{
+			"key": "filepolicy_id",
+			"value": ""
+		},
+		{
+			"key": "intrusionpolicy",
+			"value": "Postman-IpsPolicy"
+		},
+		{
+			"key": "intrusionpolicy_id",
+			"value": ""
+		},
+		{
+			"key": "natpolicy",
+			"value": "Postman-NatPolicy"
+		},
+		{
+			"key": "natpolicy_id",
+			"value": ""
+		},
+		{
+			"key": "hapair",
+			"value": "ftd01.example.com"
+		},
+		{
+			"key": "hapair_id",
+			"value": ""
+		},
+		{
+			"key": "device",
+			"value": "ftd01.example.com"
+		},
+		{
+			"key": "device_id",
+			"value": ""
+		},
+		{
+			"key": "network",
+			"value": "Postman-NetworkObj"
+		},
+		{
+			"key": "network_id",
+			"value": ""
+		},
+		{
+			"key": "networkgroup",
+			"value": "Postman-NetworkGroupObj"
+		},
+		{
+			"key": "networkgroup_id",
+			"value": ""
+		},
+		{
+			"key": "host",
+			"value": "Postman-HostObj"
+		},
+		{
+			"key": "host_id",
+			"value": ""
+		},
+		{
+			"key": "port",
+			"value": "Postman-PortObj"
+		},
+		{
+			"key": "port_id",
+			"value": ""
+		},
+		{
+			"key": "portgroup",
+			"value": "Postman-PortGroupObj"
+		},
+		{
+			"key": "portgroup_id",
+			"value": ""
+		},
+		{
+			"key": "protocol",
+			"value": "https"
+		},
+		{
+			"key": "s2svpn",
+			"value": "Postman-S2SVPN"
+		},
+		{
+			"key": "s2svpn_id",
+			"value": ""
+		},
+		{
+			"key": "s2svpn_advancedsettings",
+			"value": ""
+		},
+		{
+			"key": "s2svpn_endpoints",
+			"value": ""
+		},
+		{
+			"key": "s2svpn_ikesettings",
+			"value": ""
+		},
+		{
+			"key": "s2svpn_ikesettings_id",
+			"value": ""
+		},
+		{
+			"key": "s2svpn_ipsecsettings",
+			"value": ""
+		},
+		{
+			"key": "s2svpn_ipsecsettings_id\n",
+			"value": ""
+		},
+		{
+			"key": "s2svpn_ipsecsettings_id",
+			"value": ""
+		},
+		{
+			"key": "network_with_overrides",
+			"value": ""
+		},
+		{
+			"key": "network_with_overrides_id",
+			"value": ""
+		},
+		{
+			"key": "networkgroup",
+			"value": "Postman-NetworkGroupWithOverrides"
+		},
+		{
+			"key": "networkgroup_id",
+			"value": ""
+		},
+		{
+			"key": "autonatrule",
+			"value": ""
+		},
+		{
+			"key": "autonatrule_id",
+			"value": ""
+		},
+		{
+			"key": "url",
+			"value": "Postman-UrlObjWithOverrides"
+		},
+		{
+			"key": "url_id",
+			"value": ""
+		},
+		{
+			"key": "deployment_timestamp",
+			"value": ""
+		},
+		{
+			"key": "device_regkey",
+			"value": "Cisco123"
+		},
+		{
+			"key": "syslog_alert",
+			"value": "Postman-SyslogAlert"
+		},
+		{
+			"key": "syslog_alert_id",
+			"value": ""
+		},
+		{
+			"key": "snmp_alert",
+			"value": "Postman-SnmpAlert"
+		},
+		{
+			"key": "snmp_alert_id",
+			"value": ""
+		}
+	]
+}
