@@ -9,7 +9,7 @@ The following variables must be set to use the Postman collection:
 | hostname | FQDN or ip address of Firepower Management Center | True      | fmc.example.com |
 | username | Username                                          | True      | api             |
 | password | Password                                          | True      | Cisco123        |
-| domain   | FMC Domain                                        | True‚     | Global          |
+| domain   | FMC Domain                                        | True      | Global          |
 
 Note: It is recommended to use a dedicated api user, since a user can only be authenticated once!
 
